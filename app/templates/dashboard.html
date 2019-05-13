@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+{% block content %}
+    <table>
+        <th>
+            <!-- <td>Instrument</td> -->
+            <td>Market</td>
+            <td>Currency</td>
+            <td>Entries</td>
+            <td>Cost (EUR)</td>
+            <td>Target</td>
+        </th>
+    {% for position in positions %}
+        <tr>
+            <td>{{ position['instrument'] }}</td>
+            <td>{{ position['market'] }}</td>
+            <td>{{ position['currency'] }}</td>
+            <td>
+                {% for v in position['entries_underlying'].values(): %}
+                    {{ v['price'] }},
+                {% endfor %}
+            </td>
+            <td>
+                {% set position_size = [] %}
+                {% for k, v in position['entries_underlying'].items(): %}
+                    {% if position_size.append(position_exposure(v['price'], v['quantity'])) %}{% endif %}
+                {% endfor %}
+                {% set position_size_rounded = position_size | sum / convert_fx(position['currency']) %}
+                {{ position_size_rounded | round | int }}
+            </td>
+            <td>{{ position['target'] | round(2, 'floor') }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
