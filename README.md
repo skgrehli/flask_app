@@ -1,9 +1,8 @@
 # App
 
 # Todo
-1. Password protect Heroku or Flask app.
-2. Finish Visual Studio guide below.
-3. Copy code from Gem to this repo and make certain all pips are installed (pymongo, quandl etc.)
+1. Why does it break on 'from . import app'?
+2. Password protect Heroku or Flask app.
 
 ---
 
