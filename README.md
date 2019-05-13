@@ -21,3 +21,10 @@ pip3 install dnspython
 pip3 install quandl # also installs numpy and pandas
 pip3 install beautifulsoup4
 ```
+
+### 2.3. Commands
+- Run virtual environment in VS Terminal with `source env/bin/activate`. This is only needed if (env) is exited in VS Terminal window.
+- Run Flask app: `python3 -m flask run`, or using debugger `⌃F5`.
+- Run Flask app outside VS Code debugger:
+    1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use export set `FLASK_APP=webapp`.
+    2. In the `app` folder, launch the program using `python3 -m flask run`.
