@@ -6,12 +6,10 @@
 image: python:3.7.3
 
 pipelines:
-  branches:
-    master:
-      - step:
-          caches:
-            - pip
-          deployment: production
-          script: # Modify the commands below to build your repository.
-            - pip install -r requirements.txt
-            - git push https://heroku:$heroku_api_key@git.heroku.com/$heroku_app_name.git HEAD
+  default:
+    - step:
+        caches:
+          - pip
+        script: # Modify the commands below to build your repository.
+          - pip install -r requirements.txt
+          - git push https://heroku:$heroku_api_key@git.heroku.com/$heroku_app_name.git HEAD
