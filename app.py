@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "Hello, Flask!"
+    return "Hello, world!"
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
