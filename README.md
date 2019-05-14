@@ -2,7 +2,8 @@
 
 # Todo
 1. Why does it break on 'from . import app'?
-2. Password protect Heroku or Flask app.
+2. Password protect Heroku or [Flask app](https://flask-basicauth.readthedocs.io/en/latest/).
+3. Later on, implement Heroku Private Spaces and google `Integrating MongoDB Atlas with Heroku Private Spaces`.
 
 ---
 
