@@ -11,8 +11,8 @@ quandl_key = 'XzsKV7TBwpzcgjXj4RD3'
 import quandl
 quandl.ApiConfig.api_key = quandl_key
 
-app.config['BASIC_AUTH_USERNAME'] = 'john'
-app.config['BASIC_AUTH_PASSWORD'] = 'matrix'
+app.config['BASIC_AUTH_USERNAME'] = 'contrarian'
+app.config['BASIC_AUTH_PASSWORD'] = 'thinking'
 app.config['BASIC_AUTH_FORCE'] = True
 basic_auth = BasicAuth(app)
 
