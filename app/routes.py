@@ -30,6 +30,23 @@ def dashboard():
         positions=positions,
         example_list = []) # can be removed
 
+@app.route('/create-ticket')
+def create_ticket():
+    return render_template("ticket.html")
+
+@app.route('/edit-ticket')
+def edit_ticket():
+    return render_template("ticket.html")
+
+@app.route('/close-ticket')
+def close_ticket():
+    return render_template("ticket.html")
+
+def redirect_url():
+    return request.args.get('next') or \
+        request.referrer or \
+        url_for('index')
+
 
 @app.context_processor
 def calculators():
