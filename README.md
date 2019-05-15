@@ -1,9 +1,7 @@
 # App
 
 # Todo
-1. Why does it break on 'from . import app'?
-2. Password protect Heroku or [Flask app](https://flask-basicauth.readthedocs.io/en/latest/).
-3. Later on, implement Heroku Private Spaces and google `Integrating MongoDB Atlas with Heroku Private Spaces`.
+
 
 ---
 
@@ -28,3 +26,20 @@ pip3 install beautifulsoup4
 - Run Flask app outside VS Code debugger:
     1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use export set `FLASK_APP=webapp`.
     2. In the `app` folder, launch the program using `python3 -m flask run`.
+
+---
+
+## 3. Security
+### 3.1. Password protection
+Documentation on BasicAuth can be found [here](). To protect a single page, set `app.config['BASIC_AUTH_FORCE']` to `False` and define the route as the following:
+```
+@app.route('/secret')
+@basic_auth.required
+def secret_view():
+    return render_template('secret.html')
+```
+
+---
+
+## X. Future functionality
+- Heroku Private Spaces to prevent unauthorized access to db, [guide](https://www.mongodb.com/blog/post/integrating-mongodb-atlas-with-heroku-private-spaces).

@@ -1,4 +1,5 @@
 from flask import render_template
+from flask_basicauth import BasicAuth
 from datetime import datetime
 from app import app
 
@@ -9,6 +10,12 @@ db = client.asa_db_01
 quandl_key = 'XzsKV7TBwpzcgjXj4RD3'
 import quandl
 quandl.ApiConfig.api_key = quandl_key
+
+app.config['BASIC_AUTH_USERNAME'] = 'john'
+app.config['BASIC_AUTH_PASSWORD'] = 'matrix'
+app.config['BASIC_AUTH_FORCE'] = True
+basic_auth = BasicAuth(app)
+
 
 @app.route('/')
 @app.route('/index')
@@ -21,6 +28,7 @@ def dashboard():
     return render_template("dashboard.html",
         positions=positions,
         example_list = []) # can be removed
+
 
 @app.context_processor
 def calculators():
