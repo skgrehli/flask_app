@@ -11,6 +11,7 @@ Dashboard
             <td>Entries</td>
             <td>Cost (EUR)</td>
             <td>Target</td>
+            <td>ID</td>
         </th>
     {% for position in positions %}
         <tr>
@@ -31,6 +32,7 @@ Dashboard
                 {{ position_size_rounded | round | int }}
             </td>
             <td>{{ position['target'] | round(2, 'floor') }}</td>
+            <td>{{ position['id'] }}</td>
         </tr>
     {% endfor %}
     </table>
