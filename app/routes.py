@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for # request, redirect_url, url_for and bson line not part of my code
 from flask_basicauth import BasicAuth
 from bson import ObjectId
 from datetime import datetime
@@ -12,8 +12,8 @@ quandl_key = 'XzsKV7TBwpzcgjXj4RD3'
 import quandl
 quandl.ApiConfig.api_key = quandl_key
 
-app.config['BASIC_AUTH_USERNAME'] = 'contrarian'
-app.config['BASIC_AUTH_PASSWORD'] = 'thinking'
+app.config['BASIC_AUTH_USERNAME'] = 'hello'
+app.config['BASIC_AUTH_PASSWORD'] = 'there'
 app.config['BASIC_AUTH_FORCE'] = True
 basic_auth = BasicAuth(app)
 
@@ -42,7 +42,7 @@ def edit_ticket():
 def close_ticket():
     return render_template("ticket.html")
 
-def redirect_url():
+def redirect_url(): # not part of my code
     return request.args.get('next') or \
         request.referrer or \
         url_for('index')
