@@ -2,6 +2,7 @@
 
 # Todo
 - Basic functionality, [1](https://www.codeproject.com/Articles/1255416/Simple-Python-Flask-Program-with-MongoDB).
+- Merging RSS-feeds without Zapier, [1](https://bit.ly/2VSJEil)
 
 ---
 

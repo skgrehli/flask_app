@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}
+Feed
+{% endblock %}
+{% block content %}
+<h2>Headlines</h2>
+    <h3><a href="{{link}}" target="_blank">{{title}}</a></h3>
+        <p>{{summary}}, {{published}}</p>
+        <hr />
+{% endblock %}
