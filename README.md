@@ -1,7 +1,7 @@
 # App
 
 # Todo
-- Basic functionality, [1](https://www.codeproject.com/Articles/1255416/Simple-Python-Flask-Program-with-MongoDB)
+- Basic functionality, [1](https://www.codeproject.com/Articles/1255416/Simple-Python-Flask-Program-with-MongoDB).
 
 ---
 
