@@ -41,8 +41,8 @@ def dashboard():
 def create_ticket():
     return render_template("ticket.html")
 
-@app.route('/edit-ticket')
-def edit_ticket():
+@app.route('/append-ticket')
+def append_ticket():
     return render_template("ticket.html")
 
 @app.route('/close-ticket')

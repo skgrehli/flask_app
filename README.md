@@ -2,6 +2,14 @@
 
 # Todo
 - Basic functionality, [1](https://www.codeproject.com/Articles/1255416/Simple-Python-Flask-Program-with-MongoDB).
+    - On append-ticket page:
+        1. List all open tickets (id, instrument).
+        2. When ticket is clicked, show form to add lot.
+        3. Recalculate in EUR.
+    - Om index/dashboard (will be merged):
+        1. Display open positions with exposures etc.
+        2. Display metrics such as average loss, average profit.
+        3. Display feed.
 - Merging RSS-feeds without Zapier, [1](https://bit.ly/2VSJEil)
 
 ---
