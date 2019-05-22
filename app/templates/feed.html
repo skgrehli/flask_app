@@ -4,7 +4,9 @@ Feed
 {% endblock %}
 {% block content %}
 <h2>Headlines</h2>
-    <h3><a href="{{link}}" target="_blank">{{title}}</a></h3>
-        <p>{{summary}}, {{published}}</p>
+    {% for article in articles %}
+    <h3><a href="{{article.link}}" target="_blank">{{article.title}}</a></h3>
+        <p>{{article.summary}}, {{article.published}}</p> <!-- think this should be hidden with a plus sign or similar that can be clicked to display the summary -->
         <hr />
+    {% endfor %}
 {% endblock %}

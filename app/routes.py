@@ -18,7 +18,11 @@ app.config['BASIC_AUTH_FORCE'] = True
 basic_auth = BasicAuth(app)
 
 import feedparser
-BBC_FEED = "http://feeds.bbci.co.uk/news/rss.xml"
+feed_1 = "http://feeds.bbci.co.uk/news/rss.xml"
+
+import json
+import urllib3
+import urllib
 
 
 @app.route('/')
@@ -47,9 +51,8 @@ def close_ticket():
 
 @app.route("/feed")
 def get_news():
-     feed = feedparser.parse(BBC_FEED)
-     first_article = feed['entries'][0]
-     return render_template("feed.html", title=first_article.get("title"), published=first_article.get("published"), summary=first_article.get("summary"), link=first_article.get("link"))
+     feed = feedparser.parse(feed_1)
+     return render_template("feed.html", articles=feed['entries'])
 
 
 @app.context_processor
