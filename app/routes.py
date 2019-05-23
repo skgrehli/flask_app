@@ -1,13 +1,12 @@
-from flask import render_template, request, redirect, url_for # request, redirect_url, url_for and bson line not part of my code
+from flask import render_template
 from flask_basicauth import BasicAuth
-from bson import ObjectId
 from datetime import datetime
 from app import app
 
-db_connection = "mongodb+srv://dev01:KKizYFNtsboBQAf2@asa01-jeqsk.mongodb.net/admin"
+db_connection = "mongodb+srv://dev_ext01:r3qbGOHwuFmIYce9@cluster0-jeqsk.mongodb.net/admin"
 from pymongo import MongoClient
 client = MongoClient(db_connection)
-db = client.asa_db_01
+db = client.db0
 quandl_key = 'XzsKV7TBwpzcgjXj4RD3'
 import quandl
 quandl.ApiConfig.api_key = quandl_key
@@ -33,7 +32,7 @@ def index():
 @app.route("/dashboard")
 def dashboard():
     positions = db.tickets.find({"status":"open"}) # positions = db.tickets.find_one({"instrument": "tsxv:glxy"})
-    return render_template("dashboard.html",
+    return render_template("dashboard_2.html",
         positions=positions,
         example_list = []) # can be removed
 

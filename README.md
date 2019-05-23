@@ -30,11 +30,34 @@ pip3 install beautifulsoup4
 ```
 
 ### 2.3. Commands
+#### 2.3.1. Terminal
 - Run virtual environment in VS Terminal with `source env/bin/activate`. This is only needed if (env) is exited in VS Terminal window.
 - Run Flask app: `python3 -m flask run`, or using debugger `⌃F5`.
 - Run Flask app outside VS Code debugger:
     1. Set an environment variable for `FLASK_APP`. On Linux and macOS, use export set `FLASK_APP=webapp`.
     2. In the `app` folder, launch the program using `python3 -m flask run`.
+
+#### 2.3.2. Jinja2
+```
+# Setting a variable inside the loop
+{% for position in positions %}
+    {% for k, v in position['entries_underlying'].items(): %}
+        {% set somevar = v['price'] %}
+        {{ somevar }}
+    {% endfor %}
+{% endfor %}
+```
+
+```
+# Setting a variable outside the loop
+{% set v_global = [] %} # a trick array is needed
+{% for item in record.my_list %} # ex : count = 2
+    {% if item == "OK" %}
+        {% if v_global.append('1') %}{% endif %}
+    {% endif %}
+{% endfor %}
+{{ v_global }} # outputs: 2 
+```
 
 ---
 
