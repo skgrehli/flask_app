@@ -5,15 +5,56 @@ Ticket
 {% block content %}
     {% if request.path == url_for('create_ticket') %}
     <p>Create ticket</p>
+    <!--
+    FORM
+        FIELDS:
+            - analysis_id (string, optional)
+            - instrument (string, transform to lowercase)
+            - derivative (string, if blank don't add to document, if not blank add price_underlying to entries sub dict, see 1000003.json for example)
+            - market (string, transform to lowercase)
+            - currency (string, transform to lowercase)
+            - date (string, if field is left blank, set to current date and time)
+            - quantity (integer)
+            - stop (float)
+            - target (float)
+            - price (float, negative number is allowed, see 1000001.json for example)
+            - fee (float, if currency above is other than EUR, convert inserted fee to EUR)
+            - comment (string)
+            - portfolio (string)
+        AUTOMATICALLY SET ON INSERT:
+            - id (one increment higher than the last, e.g. if last was 1000004, this one will be 1000005)
+            - notional (calculate )
+            - "status": "open"
+            - "profit_loss": 0
+    -->
 
     {% elif request.path == url_for('append_ticket') %}
     <h1>Append ticket</h1>
     <p>Click the ticket you want to append a lot to:</p>
-    <ol>
-        <li>Ticket</li>
-    </ol>
+    <!--
+    FOR LOOP
+        List all documents (aka tickets) with key value pair "status": "open", something like this:
+        <ul>
+            <li><a>nymex_dl:cl1!</a></li>
+            <li><a>nasdaq:goog</a></li>
+        <Ul>
+        
+        When a document above is clicked, show the following form
+
+    FORM
+        FIELDS (adds new dict to entries dict, if last was 1, this is 2):
+            - date (string, if field is left blank, set to current date and time)
+            - quantity (integer)
+            - stop (float, optional)
+            - price (float)
+            - price_underlying (float, only if document has underlying key, e.g. line 8 in 1000003.json)
+            - comment
+    -->
+
 
     {% elif request.path == url_for('close_ticket') %}
-    <p>Close ticket</p>
+    <p>Click the ticket you want to close:</p>
+    <!-- Later -->
+
     {% endif %}
 {% endblock %}
